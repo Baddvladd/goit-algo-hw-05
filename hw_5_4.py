@@ -17,9 +17,7 @@ def parse_input(user_input):
 
 @input_error
 def add_contact(args, contacts):
-    if len(args) != 2:
-        raise ValueError
-    name, phone = args
+    name, phone = args 
     if name in contacts:
         raise KeyError
     contacts[name] = phone
@@ -27,9 +25,7 @@ def add_contact(args, contacts):
 
 @input_error
 def change_contact(args, contacts):
-    if len(args) != 2:
-        raise ValueError
-    name, phone = args
+    name, phone = args  
     if name not in contacts:
         raise KeyError
     contacts[name] = phone
@@ -37,9 +33,7 @@ def change_contact(args, contacts):
 
 @input_error
 def get_phone(args, contacts):
-    if len(args) != 1:
-        raise ValueError
-    name = args[0]
+    name = args[0]  
     if name not in contacts:
         raise KeyError
     return f"{name}: {contacts[name]}"
@@ -47,7 +41,7 @@ def get_phone(args, contacts):
 @input_error
 def show_all_contacts(contacts):
     if not contacts:
-        raise ValueError
+        return "No contacts found."
     return "\n".join([f"{name}: {phone}" for name, phone in contacts.items()])
 
 def main():
